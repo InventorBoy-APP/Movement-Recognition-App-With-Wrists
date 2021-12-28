@@ -1,0 +1,44 @@
+body{
+    text-align:center;
+    background-size: cover;
+}
+
+
+#header{
+    width:100%;
+    font-family: 'Kalam', cursive;
+}
+
+
+#footer{
+    width:100%;
+    bottom:0;
+    margin:0;
+    background-color:darkseagreen;
+    border-style: groove;
+    border-color:deepskyblue;
+    font-family: 'Kalam', cursive;
+}
+
+
+#play{
+    height:64px;
+    width:200px;
+    font-family: 'Kalam', cursive;
+}
+
+
+canvas{
+animation-name:borderlight;
+animation-iteration-count: infinite;
+animation-duration: 4s;
+ border-radius:40px;
+ height:800px;
+ width:800px;
+}
+
+
+@keyframes borderlight{
+    from{ box-shadow: 5px 5px 35px navy;}
+    to{ box-shadow: 5px 5px 35px springgreen;}
+}
