@@ -14,6 +14,10 @@ scoreLeftWrist = 0;
 scoreRightWrist = 0;
 
 
+songOneStatus = "";
+songTwoStatus = "";
+
+
 function setup(){
      canvas = createCanvas(600,500);
      canvas.center();
@@ -30,6 +34,34 @@ function setup(){
 
 function draw(){
     image(video, 0, 0, 600, 500);
+
+    
+    song1Status = songOne.isPlaying();
+    song2Status = songTwo.isPlaying();
+    fill("#E40618");
+    stroke("#E40618");
+
+
+    if (scoreLeftWrist > 0.2){ 
+        circle( leftWristX, leftWristY, 20);
+        songTwo.stop();
+        if ( songOneStatus == false){
+            songTwo.play();
+            document.getElementById("play").innerHTML = " Song Name : Love Nwanti"
+        }
+        
+    }
+
+
+    if (scoreRightWrist > 0.2){ 
+        circle( rightWristX, rightWristY, 20);
+        songOne.stop();
+        if ( songTwoStatus == false){
+            songOne.play();
+            document.getElementById("play").innerHTML = " Song Name : Git Up"
+        }
+        
+    }
 }
  
 
@@ -53,6 +85,7 @@ function gotPoses(results){
     if( results.length > 0){
         console.log(results);
         scoreLeftWrist = results[0].pose.keypoints[9].score;
+        scoreRightWrist = results[0].pose.keypoints[10].score;
         
         leftWristX = results[0].pose.leftWrist.x;
         leftWristY = results[0].pose.leftWrist.y;
